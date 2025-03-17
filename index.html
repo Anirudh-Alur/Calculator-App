@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Calculator</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Below link is enabling styles in out HTML document through styles.css file. Multiple css files can be imported same way. -->
+  <link rel="stylesheet" href="./css/style.css" />
+  
+  <title>Calculator</title>
 </head>
+
 <body>
-    <a href="https://anirudh-alur.github.io/Calculator-App/" target="_blank" style="display: block; font-size: 20px; color: red;">LINK</a>
-     <h4 class="app-title">CALCULATOR APP</h4>
-      <div class="calculator">
-       
-        <div id="display">0</div>
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('(')">(</button>
-            <button onclick="appendToDisplay(')')">)</button>
-            <button onclick="appendToDisplay('/')">÷</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('*')">×</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('-')">−</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="backspace()">
-                <img src="./assets/icons/delete.svg" alt="Delete" style="width: 20px; height: 20px;">
+<a href="https://anirudh-alur.github.io/Calculator-App/" target="_blank" 
+style="display: block; font-size: 20px; color: red;">LINK</a>
+  <div class="page-container">
+   
+    <section class="calculator-section-container">
+      <h1>CALCULATOR</h1>
+      <div class="bg-cicle">
+        <div class="container">
+          <div class="display">
+            <input id="input" type="text" class="secondary-input" disabled />
+            <input id="screen" type="text" class="primary-input" disabled />
+          </div>
+
+          <div class="row row-first">
+            <button id="ce" class="btn btn-primary" onclick="backSpace()">
+              <img src="./assets/icons/delete.svg" width="40px" height="40px" />
             </button>
+            <!-- btn-class added in class alternatively to btn class to not mount click event listner on particular button -->
+            <!-- Inline style will override class due to higher specificity -->
+            <button id="ce" class="btn-class btn-primary" onclick="clearExpression()" style="width: 100%">
+              CE
+            </button>
+            <button id="ac" class="btn btn-primary" onclick="screen.value='';input.value=''">
+              AC
+            </button>
+          </div>
+          <div class="row">
+            <button class="btn">(</button>
+            <button class="btn">)</button>
+            <button class="btn">^</button>
+
+            <button class="btn btn-primary">+/-</button>
+            <button class="btn btn-primary">√</button>
+          </div>
+
+          <div class="row">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn btn-primary">÷</button>
+            <button class="btn-class btn-primary" onclick="calculatePercentage()">
+              %
+            </button>
+          </div>
+
+          <div class="row">
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn btn-primary">×</button>
+            <button class="btn-class btn-primary" onclick="inverse()">
+              1/×
+            </button>
+          </div>
+
+          <div class="row">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn btn-primary">+</button>
+            <button class="btn-class btn-primary btn-equal" onclick="getResult()">
+              =
+            </button>
+          </div>
+
+          <div class="row">
+            <button class="btn btn-expanded">0</button>
+            <button class="btn">.</button>
+            <button class="btn btn-primary">-</button>
+          </div>
         </div>
-    </div>
-    <script src="./javascript/script.js"></script>
+      </div>
+    </section>
+    <p class="copyright-text">© 2023 WSA. All Rights Reserved.</p>
+  </div>
+  <script src="./javascript/script.js"></script>
 </body>
+
 </html>
